@@ -4,7 +4,7 @@ import math
 pygame.init()
 
 # Screen
-WIDTH = 300
+WIDTH = 600
 ROWS = 3
 win = pygame.display.set_mode((WIDTH, WIDTH))
 pygame.display.set_caption("TicTacToe")
@@ -17,8 +17,8 @@ RED = (255, 0, 0)
 BLUE = (0, 0, 255)
 
 # Images
-X_IMAGE = pygame.transform.scale(pygame.image.load("images/x.png"), (80, 80))
-O_IMAGE = pygame.transform.scale(pygame.image.load("images/o.png"), (80, 80))
+X_IMAGE = pygame.transform.scale(pygame.image.load("images/x.png"), (160, 160))
+O_IMAGE = pygame.transform.scale(pygame.image.load("images/o.png"), (160, 160))
 
 # Fonts
 END_FONT = pygame.font.SysFont('courier', 40)
@@ -85,17 +85,28 @@ def click(game_array):
 
 # Checking if someone has won
 def has_won(game_array):
-    # Checking rows
-    for row in range(len(game_array)):
-        if (game_array[0][2] == game_array[1][2] == game_array[2][2]) and game_array[0][2] != "":
-            display_message(game_array[0][2].upper() + " has won!")
-            return True
 
-    # Checking columns
-    for col in range(len(game_array)):
-        if (game_array[0][2] == game_array[1][2] == game_array[2][2]) and game_array[0][2] != "":
-            display_message(game_array[0][2].upper() + " has won!")
-            return True
+    # Checking columns (possibly rows....)
+    if (game_array[0][0][2] == game_array[0][1][2] == game_array[0][2][2]) and game_array[0][0][2] != "":
+        display_message(game_array[0][0][2].upper() + " has won!")
+        return True
+    if (game_array[1][0][2] == game_array[1][1][2] == game_array[1][2][2]) and game_array[1][0][2] != "":
+        display_message(game_array[1][0][2].upper() + " has won!")
+        return True
+    if (game_array[2][0][2] == game_array[2][1][2] == game_array[2][2][2]) and game_array[2][0][2] != "":
+        display_message(game_array[2][0][2].upper() + " has won!")
+        return True
+
+    # Checking rows (possibly columns....)
+    if (game_array[0][0][2] == game_array[1][0][2] == game_array[2][0][2]) and game_array[0][0][2] != "":
+        display_message(game_array[0][0][2].upper() + " has won!")
+        return True
+    if (game_array[0][1][2] == game_array[1][1][2] == game_array[2][1][2]) and game_array[0][1][2] != "":
+        display_message(game_array[0][1][2].upper() + " has won!")
+        return True
+    if (game_array[0][2][2] == game_array[1][2][2] == game_array[2][2][2]) and game_array[0][2][2] != "":
+        display_message(game_array[0][2][2].upper() + " has won!")
+        return True
 
     # Checking main diagonal
     if (game_array[0][0][2] == game_array[1][1][2] == game_array[2][2][2]) and game_array[0][0][2] != "":
