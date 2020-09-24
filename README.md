@@ -15,3 +15,9 @@ By Chasum Burton and Bradley Hull
 - The images folder: currently has the 2 images (X and O)
   that will be used to represent the obvious :)
 
+
+---------------[v2.1.0 - September 24, 2020]---------------
+- Fixed bug that was preventing players from winning when
+  they had a 3 in a row horizontally and vertically
+- Updated the "X" and "O" images to be way cooler sprites
+  of batman and pikachu!
